@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  background-color: rgb(211, 205, 198);
+}
+
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: rgb(2 104 107);
+  height: 50px;
+  padding: 0px 50px;
+  /* border: 2px solid red; */
+}
+
+nav > h3 {
+  /* border: 1px solid red; */
+  padding: 8px;
+  font-weight: 500;
+  color: white;
+  font-size: 26px;
+}
+
+a, a:hover, a:focus, a:active {
+  text-decoration: none;
+  color: inherit;
+}
+
+nav > ul {
+  display: flex;
+  flex-direction: row;
+  width: 450px;
+  margin-left: 40px;
+  list-style-type: none;
+  /* border: 1px solid red; */
+}
+
+nav > ul > li {
+  color: white;
+  padding: 7px;
+  margin: 5px;
+  /* border: 1px solid red; */
+  transition: background-color 0.3s ease-in-out;
+}
+
+.active {
+  padding: 6px;
+  border: 1px solid rgb(64, 228, 23);
+  border-radius: 5px;
+}
+
+nav > ul > li:hover{
+  /* border: 1px solid rgb(0, 68, 255); */
+  border-radius: 5px;
+  /* padding: 6px; */
+  background-color: rgb(9, 180, 9);
+  cursor: pointer;
+}
+
+nav > form {
+  display: flex;
+  width: 280px;
+  height: 40px;
+  /* margin: 0 20px; */
+  margin-left: 300px;
+  justify-content: space-evenly;
+  /* border: 1px solid red; */
+}
+
+nav > form > input {
+  margin: 5px 1px;
+  padding: 0 8px;
+}
+
+nav > form > input:focus{
+  text-decoration: none;
+  outline: none;
+}
+
+nav > form > button {
+  margin: 5px 0;
+  width: 60px;
+  border-radius: 5px;
+  outline: none;
+  text-decoration: none;
+  color: white;
+  background-color: rgb(20, 146, 20);
+}
