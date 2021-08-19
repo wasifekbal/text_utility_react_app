@@ -1,11 +1,13 @@
-import React from "react";
+import React, {useState} from "react";
 import PropTypes from 'prop-types'
 
 function Navbar(proto) {
+
   return (
-    <nav className="navbar navbar-expand-md navbar-light bg-dark">
+    <>
+    <nav className="navbar navbar-expand-md navbar-light border-bottom">
       <div className="container-fluid">
-        <a className="navbar-brand" href="/">
+        <a className="navbar-brand fs-3 mx-4" href="/">
           {proto.title}
         </a>
         <button
@@ -35,7 +37,7 @@ function Navbar(proto) {
               </a>
             </li>
           </ul>
-          <form className="d-flex">
+          {/* <form className="d-flex">
             <input
               className="form-control me-2"
               type="search"
@@ -45,10 +47,12 @@ function Navbar(proto) {
             <button className="btn btn-success text-light" type="submit">
               Search
             </button>
-          </form>
+          </form> */}
         </div>
       </div>
     </nav>
+    {/* <hr className="text-dark-blue"/> */}
+    </>
   );
 }
 
