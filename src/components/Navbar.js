@@ -1,13 +1,22 @@
-import React, {useState} from "react";
+import React from "react";
 import PropTypes from 'prop-types'
 
 function Navbar(proto) {
 
+  const notMode = (mode) => {
+    if(mode === 'light'){
+      return "dark"
+    }
+    else{
+      return "light";
+    }
+  }
+
   return (
     <>
-    <nav className="navbar navbar-expand-md navbar-light border-bottom">
-      <div className="container-fluid">
-        <a className="navbar-brand fs-3 mx-4" href="/">
+    <nav className={`navbar navbar-expand-md navbar-dark bg-${proto.mode} border-bottom`}>
+      <div className={`container-fluid text-${notMode(proto.mode)}`}>
+        <a className={`navbar-brand fs-3 mx-4 text-${proto.mode==="light"?"dark":"pink"}`} href="/">
           {proto.title}
         </a>
         <button
@@ -22,36 +31,28 @@ function Navbar(proto) {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div
-          className="collapse navbar-collapse text-light"
+          className="collapse navbar-collapse"
           id="navbarSupportedContent"
         >
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="/">
+              <a className={`nav-link active text-${proto.mode==="light"?"dark":"pink"}`} aria-current="page" href="/">
                 Home
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" aria-current="page" href="/">
+              <a className={`nav-link text-${proto.mode==="light"?"dark":"pink"}`} aria-current="page" href="/">
                 About
               </a>
             </li>
           </ul>
-          {/* <form className="d-flex">
-            <input
-              className="form-control me-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <button className="btn btn-success text-light" type="submit">
-              Search
-            </button>
-          </form> */}
+          <div className="form-check form-switch">
+            <input type="checkbox" class="btn-check" id="btn-check-outlined" onClick={proto.togglemode} autocomplete="off" />
+            <label className={`btn btn-${notMode(proto.mode)}`} htmlFor="btn-check-outlined">{proto.mode==="light"?"Dark":"Light"} Mode</label>
+          </div>
         </div>
       </div>
     </nav>
-    {/* <hr className="text-dark-blue"/> */}
     </>
   );
 }

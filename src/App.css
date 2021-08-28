@@ -1,5 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap");
 
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  font-family: "Roboto", sans-serif;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
 :root {
   --pink: #fc354c;
   --black: #29221f;
@@ -22,66 +34,18 @@
 .text-light-blue {
   color: var(--light-blue);
 }
-
-* {
-  margin: 0;
-  padding: 0;
-  text-decoration: none;
-  font-family: "Roboto", sans-serif;
-}
-
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-body {
-  /* background-color: rgb(18, 119, 89); */
-  background-color: var(--black);
-}
-
-.navbar {
-  background-color: var(--black);
-}
-
-.navbar-brand {
-  text-transform: capitalize;
-}
-
-a {
+.text-pink {
   color: var(--pink) !important;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+nav {
+  /* background-color: rgb(18, 119, 89); */
+  /* background-color: var(--black); */
+  transition: background-color 1s ease-in-out;
+  transition: color 1s ease-in-out;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+body {
+  background-color: #d5e0de;
+  transition: all 0.2s ease-in-out;
 }
