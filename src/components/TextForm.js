@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Alert from "./Alert";
 import PropTypes from "prop-types";
 
 export default function TextForm(props) {
@@ -35,6 +36,7 @@ export default function TextForm(props) {
 
   const copyText = () => {
     navigator.clipboard.writeText(text);
+    props.showAlert("Text Copied To Clipboard !!","success","center");
   };
 
   const reverseText = () => {
@@ -128,6 +130,9 @@ export default function TextForm(props) {
           >
             Copy To Clipboard
           </button>
+        </div>
+        <div className="mt-3">
+          <Alert alert={props.alert}/>
         </div>
         <div className={`container my-3 text-${notMode(props.mode)}`}>
           <h4 className="my-2 text-decoration-underline">Text summary</h4>

@@ -6,6 +6,17 @@ import React, { useState } from 'react'
 function App() {
 
   const [mode, setMode] = useState("light");
+  const [alert, setAlert] = useState(null)
+
+  const showAlert = (msg, type) => {
+    setAlert({
+      msg: msg,
+      type: type
+    })
+    setTimeout(() => {
+      setAlert(null);
+    }, 2000);
+  }
 
   const toggleMode = () => {
     if(mode === "dark"){
@@ -20,8 +31,8 @@ function App() {
 
   return (
     <>
-      <Navbar togglemode={toggleMode} mode={mode} title="Textutils" />
-      <TextForm mode={mode} heading="Enter Text Below" />
+      <Navbar togglemode={toggleMode} showAlert={showAlert} mode={mode} title="Textutils" />
+      <TextForm mode={mode} showAlert={showAlert} alert={alert} heading="Enter Text Below" />
     </>
   );
 }
