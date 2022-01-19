@@ -4,7 +4,9 @@ import TextForm from "./components/TextForm";
 import Contact from "./components/Contact";
 import React, { useState } from "react";
 import About from "./components/About";
-import { BrowserRouter as Router, Switch, Route,} from "react-router-dom";
+// import { BrowserRouter as Router, Switch, Route,} from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
+
 
 function App() {
   const [mode, setMode] = useState("light");
@@ -31,32 +33,33 @@ function App() {
   };
 
   return (
-    <Router>
-      <>
-        <Navbar
-          togglemode={toggleMode}
-          showAlert={showAlert}
-          mode={mode}
-          title="Textutils"
-        />
-        <Switch>
-          <Route exact path="/">
-            <TextForm
-              mode={mode}
-              showAlert={showAlert}
-              alert={alert}
-              heading="Enter Text Below"
-            />
-          </Route>
-          <Route exact path="/about">
-            <About mode={mode} />
-          </Route>
-          <Route exact path="/contact">
-            <Contact mode={mode} />
-          </Route>
-        </Switch>
-      </>
-    </Router>
+    <>
+      <Navbar
+        togglemode={toggleMode}
+        showAlert={showAlert}
+        mode={mode}
+        title="Textutils"
+      />
+      <Routes>
+        <Route exact path="/" element={
+          <TextForm
+            mode={mode}
+            showAlert={showAlert}
+            alert={alert}
+            heading="Enter Text Below"
+          />
+        }>
+        </Route>
+        <Route exact path="/about" element={
+          <About mode={mode} />
+        }>
+        </Route>
+        <Route exact path="/contact" element={
+          <Contact mode={mode} />
+        }>
+        </Route>
+      </Routes>
+    </>
   );
 }
 
