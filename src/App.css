@@ -49,3 +49,11 @@ body {
   background-color: #d5e0de;
   transition: all 0.2s ease-in-out;
 }
+
+li > a {
+  transition: all 0.2s ease-in-out !important;
+}
+
+li > a:hover {
+  transform: scale(1.1);
+}

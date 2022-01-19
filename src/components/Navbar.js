@@ -1,5 +1,7 @@
 import React from "react";
 import PropTypes from 'prop-types'
+import { Link } from "react-router-dom";
+
 
 function Navbar(proto) {
 
@@ -15,10 +17,10 @@ function Navbar(proto) {
   return (
     <>
     <nav className={`navbar navbar-expand-md navbar-dark bg-${proto.mode} border-bottom`}>
-      <div className={`container-fluid text-${notMode(proto.mode)}`}>
-        <a className={`navbar-brand fs-3 mx-4 text-${proto.mode==="light"?"dark":"pink"}`} href="/">
-          {proto.title}
-        </a>
+      <div className={`container-fluid text-${notMode(proto.mode)}`} style={{margin: "0 1rem"}}>
+        <Link className={`navbar-brand fs-3 mx-4 text-${proto.mode==="light"?"dark":"pink"}`} to="/">
+          <h1 style={{margin: "0"}}>{proto.title}</h1>
+        </Link>
         <button
           className="navbar-toggler"
           type="button"
@@ -34,20 +36,25 @@ function Navbar(proto) {
           className="collapse navbar-collapse"
           id="navbarSupportedContent"
         >
-          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+          <ul className="navbar-nav me-auto mb-lg-0" style={{margin: "0 auto", columnGap: "1.2rem", fontSize: "1.2rem"}}>
             <li className="nav-item">
-              <a className={`nav-link active text-${proto.mode==="light"?"dark":"pink"}`} aria-current="page" href="/">
+              <Link className={`nav-link text-${proto.mode==="light"?"dark":"pink"}`} aria-current="page" to="/">
                 Home
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className={`nav-link text-${proto.mode==="light"?"dark":"pink"}`} aria-current="page" href="/">
+              <Link className={`nav-link text-${proto.mode==="light"?"dark":"pink"}`} aria-current="page" to="/about">
                 About
-              </a>
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className={`nav-link text-${proto.mode==="light"?"dark":"pink"}`} aria-current="page" to="/contact">
+                Contact
+              </Link>
             </li>
           </ul>
-          <div className="form-check form-switch">
-            <input type="checkbox" class="btn-check" id="btn-check-outlined" onClick={proto.togglemode} autocomplete="off" />
+          <div className="form-check form-switch" style={{paddingLeft: "4rem", paddingRight: "1rem"}}>
+            <input type="checkbox" className="btn-check" id="btn-check-outlined" onClick={proto.togglemode} autoComplete="off" />
             <label className={`btn btn-${notMode(proto.mode)}`} htmlFor="btn-check-outlined">{proto.mode==="light"?"Dark":"Light"} Mode</label>
           </div>
         </div>
